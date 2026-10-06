@@ -152,3 +152,89 @@
 **36. Réutilisation de la démo ORL + IIT Delhi**
 - a) S'en servir pour calibrer les seuils et le z-score de départ, et comme point de comparaison dans UC-21 ; b) repartir de zéro.
 - *Recommandation : a*, sans reprendre son code tel quel avant relecture. **Où se trouve le code de la démo ?** (Remarque : les images ORL sont en niveaux de gris 92 × 112 px ; les scores ArcFace obtenus dessus ne seront pas représentatifs d'une webcam.)
+
+## J. Points soulevés pendant la rédaction détaillée
+
+Chaque point est développé (question, options, recommandation) à la fin de la section
+indiquée. Les doublons entre sections sont regroupés : **une seule réponse suffit** pour
+chaque ligne.
+
+### ★ À trancher en priorité
+
+| Point(s) | Sujet | Où |
+|---|---|---|
+| **N-3.14 = N-4.1** | **Révocation + ré-enrôlement avec le seul mot de passe** : un voleur de mot de passe peut enrôler *son* visage et prendre le compte. Quelle preuve exiger avant de révoquer ? | [03](03-authentification-acces.md), [04](04-maitrise-des-donnees.md) |
+| **N-5.13** | Source de la vérité terrain pour le tableau de bord (FAR/FRR/EER impossibles sans étiquettes) | [05](05-administration.md) |
+| **N-6.10** | Scénarios de protection à rapporter (sans BioHashing / jeton secret / jeton volé) — sinon EER artificiellement proche de 0 | [06](06-laboratoire-evaluation.md) |
+| **N-6.4** | Consentement des participants au laboratoire (cible, imposteur, personne dont la photo sert d'attaque) | [06](06-laboratoire-evaluation.md) |
+| **N-3.7 = N-5.11** | Les planchers R2/R3 portent-ils sur le score brut ou le score normalisé ? | [03](03-authentification-acces.md), [05](05-administration.md) |
+| **N-7.8** | Licence des modèles InsightFace (usage de recherche non commercial) | [07](07-regles-transversales.md) |
+
+### Authentification et accès — [section 3](03-authentification-acces.md)
+| Point | Sujet |
+|---|---|
+| N-3.1 | Forme et durée de la session « compte » |
+| N-3.2 | Compteur des échecs de mot de passe et portée du verrouillage |
+| N-3.3 | Cohérence de la politique d'énumération des comptes (avec 2bis) |
+| N-3.4 | Effet des refus de qualité, délais et abandons sur le verrouillage |
+| N-3.5 = N-7.7 | Définition mesurable de « < 2 s sur CPU » |
+| N-3.6 | Nombre de captures à l'authentification (le MVP utilise 3 + 3) |
+| N-3.8 | Conséquences d'un échec d'intégrité d'un gabarit |
+| N-3.9 | Sessions d'authentification simultanées sur un même compte |
+| N-3.10 = N-6.2 | Effet des tentatives du laboratoire sur le compte ciblé |
+| N-3.11 | Information du titulaire après un verrouillage |
+| N-3.12 ≈ 5bis | Authentification renforcée de l'administrateur |
+| N-3.13 ≈ N-7.9 | Mot de passe oublié / changement de mot de passe (hors périmètre ?) |
+
+### Maîtrise des données — [section 4](04-maitrise-des-donnees.md)
+| Point | Sujet |
+|---|---|
+| N-4.2 | Motif de révocation et suites données |
+| N-4.3 | Forme de la confirmation de suppression |
+| N-4.4 | Effet immédiat ou délai de grâce |
+| N-4.5 | Sort de l'historique des consentements après suppression |
+| N-4.6 | Notification par email des opérations sensibles |
+| N-4.7 | Conservation d'un compte sans gabarit actif |
+
+### Administration — [section 5](05-administration.md)
+| Point | Sujet |
+|---|---|
+| N-5.1 | Fuseau d'affichage des horodatages |
+| N-5.2 | Confirmation forte des actes sensibles |
+| N-5.3 | Motif obligatoire des actes administratifs |
+| N-5.4 | Réglages d'ergonomie des listes |
+| N-5.5 | Gestion des rôles depuis l'interface |
+| N-5.6 | Actions sur un autre administrateur ou sur soi-même |
+| N-5.7 | Information de l'utilisateur visé |
+| N-5.8 | Organisation des journaux consultables |
+| N-5.9 | Export des journaux et traçabilité des consultations |
+| N-5.10 = N-7.4 | Intégrité du journal (ajout seul, chaînage) |
+| N-5.12 | Dérivation du seuil de fusion à partir du FAR cible |
+| N-5.14 | Effectifs minimaux et incertitude affichée |
+| N-5.15 | Un jeu de paramètres de décision par extracteur d'oreille |
+| N-5.16 | Bascule d'extracteur quand des utilisateurs sont déjà enrôlés |
+
+### Laboratoire et évaluation — [section 6](06-laboratoire-evaluation.md)
+| Point | Sujet |
+|---|---|
+| N-6.1 | Forme du mode laboratoire (campagnes) |
+| N-6.3 | Fiabilité et correction de l'étiquetage |
+| N-6.5 | Tentatives interrompues et échecs d'acquisition |
+| N-6.6 | Format de l'export CSV |
+| N-6.7 | Pseudonymisation des personnes |
+| N-6.8 | Exécution du protocole et sorties |
+| N-6.9 | Protocole de collecte et constitution des comparaisons |
+| N-6.11 | Séparation calibration / test |
+| N-6.12 | Statistiques sur petits effectifs |
+| N-6.13 | Courbe DET de « fusion + garde-fou » |
+| N-6.14 | Critère de choix de l'extracteur d'oreille |
+
+### Transversal — [section 7](07-regles-transversales.md)
+| Point | Sujet |
+|---|---|
+| N-7.1 | Réglages transverses à valider en bloc |
+| N-7.2 | Cible de déploiement, certificat TLS, coffre de secrets |
+| N-7.3 | Rotation de la clé maîtresse |
+| N-7.5 | Droit de rectification |
+| N-7.6 | Sauvegardes et délai réel d'effacement |
+| N-7.9 | Confirmation du hors-périmètre v1 |
