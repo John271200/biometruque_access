@@ -27,36 +27,41 @@ protocole d'évaluation, extracteur d'oreille ONNX, Docker Compose.
 
 ## Installation sous Windows (pas à pas)
 
-**Prérequis** : [Python 3.11](https://www.python.org/downloads/) (cocher « Add to PATH »),
-[Node.js 22 LTS](https://nodejs.org/), [Git](https://git-scm.com/), une webcam, environ 1 Go
-d'espace disque. Aucun GPU ni compilateur C++ n'est nécessaire.
+**Prérequis, à installer une seule fois** : [Python 3.11](https://www.python.org/downloads/)
+(cocher « Add python.exe to PATH »), [Node.js 22 LTS](https://nodejs.org/),
+[Git](https://git-scm.com/), une webcam, environ 1 Go d'espace disque. Aucun GPU ni
+compilateur C++ n'est nécessaire.
 
-Dans **PowerShell** :
+### Méthode simple (recommandée)
+
+1. Ouvrir **PowerShell** et récupérer le projet dans un dossier du disque F: (Git demande
+   de se connecter à GitHub la première fois, car le dépôt est privé) :
+   ```powershell
+   git clone -b mvp/plateforme https://github.com/John271200/biometruque_access.git F:\biometruque_access
+   ```
+2. Dans l'Explorateur, ouvrir `F:\biometruque_access` et **double-cliquer sur `demarrer.bat`**.
+
+Le script vérifie Python et Node.js, crée l'environnement Python, installe les
+dépendances, télécharge les modèles (≈ 280 Mo), construit l'interface, lance le serveur
+et **ouvre le navigateur tout seul**. La première fois, comptez 5 à 10 minutes ; ensuite,
+quelques secondes. Pour arrêter, fermez la fenêtre noire. Pour mettre à jour le projet :
+`git pull` dans `F:\biometruque_access`, puis double-clic sur `demarrer.bat`.
+
+### Méthode manuelle (équivalente)
 
 ```powershell
-# 1. Récupérer le projet (ici sur le disque F:)
-git clone -b mvp/plateforme https://github.com/John271200/biometruque_access.git F:\biometruque_access
 cd F:\biometruque_access\backend
-
-# 2. Environnement Python et dépendances (≈ 3 min)
 py -3.11 -m venv .venv
-.venv\Scripts\python -m pip install --upgrade pip
 .venv\Scripts\python -m pip install -r requirements.txt
-
-# 3. Modèles InsightFace buffalo_l (≈ 280 Mo, une seule fois)
 .venv\Scripts\python scripts\telecharger_modeles.py
-
-# 4. Construire l'interface web
 cd ..\frontend
 npm install
 npm run build
-
-# 5. Lancer la plateforme
 cd ..\backend
 .venv\Scripts\python -m uvicorn app.main:app
 ```
 
-Ouvrir ensuite **http://localhost:8000** dans Chrome ou Edge et autoriser la caméra.
+Avec la méthode manuelle, ouvrir ensuite **http://localhost:8000** dans Chrome ou Edge ; dans les deux cas, autoriser la caméra.
 Au premier lancement, le serveur crée `backend\.env` (clé maîtresse AES et secret JWT
 générés automatiquement) et la base SQLite `backend\donnees\bioaccess.db`.
 
