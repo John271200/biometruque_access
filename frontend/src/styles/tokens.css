@@ -1,0 +1,89 @@
+/*
+ * Jetons de conception (design tokens) de BioAccess.
+ * Les couleurs de texte ont un contraste ≥ 4,5:1 sur leur fond prévu (WCAG AA) ;
+ * les bordures de champs et l'anneau de focus ont un contraste ≥ 3:1.
+ */
+:root {
+  color-scheme: light;
+
+  /* Couleurs de base */
+  --couleur-fond: #f4f6f9;
+  --couleur-surface: #ffffff;
+  --couleur-surface-alt: #eef2f6;
+  --couleur-texte: #172033;
+  --couleur-texte-doux: #4b5568;
+  --couleur-bordure: #d4dae3;
+  --couleur-bordure-forte: #6b7487;
+
+  /* Couleur de marque */
+  --couleur-primaire: #0d5c8c;
+  --couleur-primaire-survol: #094a72;
+  --couleur-primaire-pale: #e3eff7;
+  --couleur-sur-primaire: #ffffff;
+
+  /* Couleurs sémantiques (texte foncé sur fond pâle) */
+  --couleur-succes: #17703a;
+  --couleur-succes-pale: #e4f3ea;
+  --couleur-danger: #b3261e;
+  --couleur-danger-survol: #8f1d17;
+  --couleur-danger-pale: #fbeaea;
+  --couleur-alerte: #8a4b00;
+  --couleur-alerte-pale: #fff3df;
+  --couleur-info: #0d5c8c;
+  --couleur-info-pale: #e3eff7;
+
+  /* Focus clavier */
+  --couleur-focus: #1a56db;
+  --anneau-focus: 3px solid var(--couleur-focus);
+
+  /* Zone vidéo et surimpression de la capture */
+  --couleur-video: #0f1520;
+  --couleur-sur-video: #f4f6f9;
+
+  /* Typographie système */
+  --police: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif;
+  --police-mono: ui-monospace, SFMono-Regular, Menlo, Consolas, "Liberation Mono", monospace;
+  --taille-xs: 0.8125rem;
+  --taille-s: 0.875rem;
+  --taille-m: 1rem;
+  --taille-l: 1.25rem;
+  --taille-xl: 1.625rem;
+  --taille-xxl: 2.125rem;
+  --graisse-normale: 400;
+  --graisse-moyenne: 600;
+  --graisse-forte: 700;
+  --interligne: 1.55;
+  --interligne-titre: 1.2;
+
+  /* Espacements */
+  --espace-1: 0.25rem;
+  --espace-2: 0.5rem;
+  --espace-3: 0.75rem;
+  --espace-4: 1rem;
+  --espace-5: 1.5rem;
+  --espace-6: 2rem;
+  --espace-7: 3rem;
+
+  /* Rayons et ombres */
+  --rayon-s: 6px;
+  --rayon-m: 10px;
+  --rayon-l: 16px;
+  --rayon-rond: 999px;
+  --ombre: 0 1px 2px rgb(16 24 40 / 6%), 0 4px 12px rgb(16 24 40 / 6%);
+  --ombre-forte: 0 12px 40px rgb(16 24 40 / 24%);
+
+  /* Mise en page */
+  --largeur-contenu: 72rem;
+  --largeur-texte: 44rem;
+  --gouttiere: var(--espace-4);
+  --cible-tactile: 2.75rem;
+
+  /* Animations */
+  --duree: 150ms;
+}
+
+@media (min-width: 48rem) {
+  :root {
+    --gouttiere: var(--espace-6);
+  }
+}

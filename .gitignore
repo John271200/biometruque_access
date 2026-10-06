@@ -1,0 +1,25 @@
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+.pytest_cache/
+*.egg-info/
+
+# Secrets et données locales (ne jamais commiter)
+.env
+*.db
+*.db-journal
+backend/donnees/
+
+# Modèles ONNX téléchargés (≈ 280 Mo)
+models/
+backend/models/
+
+# Frontend
+frontend/node_modules/
+frontend/dist/
+
+# Divers
+.DS_Store
+Thumbs.db

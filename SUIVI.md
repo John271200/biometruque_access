@@ -19,4 +19,11 @@ renvoie à un point de [`docs/cas-utilisation/08-points-a-trancher.md`](docs/cas
 
 ## Notes / écarts assumés
 
-(Consigner ici toute étape sautée délibérément, avec la raison et le risque accepté.)
+- **2026-10-06 — MVP construit avant validation des étapes 1 à 3** (décision explicite de
+  l'auteur : « sauter des étapes en connaissance de cause », pour disposer rapidement d'une
+  plateforme qui enrôle et reconnaît visage + oreille). Branche `mvp/plateforme`.
+  - Valeurs par défaut prises : les **recommandations** de `docs/cas-utilisation/08-points-a-trancher.md`
+    (ex. point 3 a, 19 a, 23 a, 26, 27 c en production), détaillées dans `docs/mvp/CONTRAT-MVP.md`.
+  - Risque accepté : certaines réponses aux points à trancher (notamment 3, 15, 19, 27, N-4.1)
+    imposeront de reprendre une partie du code ; les étapes 1 à 3 restent à valider.
+  - Sans Alembic ni Docker Compose pour l'instant (création des tables au démarrage).
